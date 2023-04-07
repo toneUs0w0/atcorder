@@ -19,7 +19,7 @@ def bfs(st):
     rtn_cost = 0
     q = deque([(st, 0)])
     while q:
-        print(q)
+        #print(q)
         s, cost = q.pop()
         if check[s]:
             continue
@@ -28,8 +28,9 @@ def bfs(st):
             if check[nxt]:
                 continue
             q.append((nxt, cost + 1))
-            rtn_n = nxt
-            rtn_cost = cost + 1
+            if rtn_cost < cost + 1:
+                rtn_n = nxt
+                rtn_cost = cost + 1
     return (rtn_n, rtn_cost)
 
 mid_n, mid_cost = bfs(1)
